@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
+using SeleniumTest.PageObjects;
 using TechTalk.SpecFlow;
 
 namespace SeleniumTest.Bindings
@@ -26,6 +24,14 @@ namespace SeleniumTest.Bindings
 
             var element = driver.FindElement(By.Id("lst-ib"));
             Assert.IsNotNull(element);
+        }
+
+        [Then("page title should be '(.*)'")]
+        public void VerifyPageTitle(string title)
+        {
+            var driver = ScenarioContext.Current.Get<IWebDriver>();
+            var page = new BicycleClaimObject(driver);
+            Assert.AreEqual(title.ToUpper(), page.GetTitle());
         }
     }
 }

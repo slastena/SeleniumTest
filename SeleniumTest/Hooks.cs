@@ -102,7 +102,7 @@ namespace SeleniumTest
             }
             catch (Exception ex)
             {
-                WriteExceptionToLog("Exception occured while closing browser", ex);
+                WriteExceptionToLog("Exception occurred while closing browser", ex);
             }
         }
 
