@@ -81,10 +81,10 @@ namespace SeleniumTest
                     driver = new FirefoxDriver();
                     break;
                 case Browsers.InternetExplorer:
-                    driver = new InternetExplorerDriver();
+                    driver = new InternetExplorerDriver(browserPath);
                     break;
                 case Browsers.PhantomJs:
-                    driver = new PhantomJSDriver();
+                    driver = new PhantomJSDriver(browserPath);
                     break;
                 default:
                     throw new NotSupportedException();
