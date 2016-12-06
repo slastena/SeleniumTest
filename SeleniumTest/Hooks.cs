@@ -61,21 +61,22 @@ namespace SeleniumTest
 
         private static IWebDriver CreateDriver()
         {
-            var browserPath = TestConfig.Instance.BrowserPath;
+            //var browserPath = TestConfig.Instance.BrowserPath;
 
             var browser = TestConfig.Instance.Browser;
 
-            return BuildWebDriver(browser, browserPath);
+            //return BuildWebDriver(browser, browserPath);
+            return BuildWebDriver(browser);
         }
 
-        private static IWebDriver BuildWebDriver(Browsers browser, string browserPath)
+        private static IWebDriver BuildWebDriver(Browsers browser, string browserPath = null)
         {
             IWebDriver driver;
 
             switch (browser)
             {
                 case Browsers.Chrome:
-                    driver = new ChromeDriver(browserPath);
+                    driver = new ChromeDriver();
                     break;
                 case Browsers.FireFox:
                     driver = new FirefoxDriver();
@@ -102,7 +103,7 @@ namespace SeleniumTest
             }
             catch (Exception ex)
             {
-                WriteExceptionToLog("Exception occured while closing browser", ex);
+                WriteExceptionToLog("Exception occurred while closing browser", ex);
             }
         }
 
